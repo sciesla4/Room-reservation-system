@@ -12,6 +12,16 @@
           text-align: center;
 
         }
+        .footer {
+          text-align: center;
+          position: absolute;
+          bottom: 0;
+          margin: auto;
+          width: 100%;
+          height: 60px; /* Set the fixed height of the footer here */
+          line-height: 60px; /* Vertically center the text there */
+          background-color: #f5f5f5;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +59,7 @@
 <div><p></p></div>
 </div>
 <div class="jumbotron text-center">
-    <h3>Below you will find all class bookings</h3>
+    <h3>Below you will find all rooms booking</h3>
     {% for reservation in reservations %}
         <li class="list-group-item">
           <h4>{{ reservation.data }}</h4>
@@ -57,9 +67,9 @@
         </li>
       {% endfor %}
 </div>
-<footer>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">The system designed by: Szymon Ciesla - <a class="text-dark" href="https://github.com/sciesla4">GitHub</a>
+
+    <div class="footer" style="background-color: rgba(0, 0, 0, 0.2);">The system designed by: Szymon Ciesla - <a class="text-dark" href="https://github.com/sciesla4">GitHub</a>
     </div>
-</footer>
+
 </body>
 </html>
