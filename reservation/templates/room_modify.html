@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Room reservation system</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .center {
+          text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Edit room in our system</h1>
+  <p>Easy and effective way to manage rooms.</p>
+</div>
+<div class="center">
+    <h1>You are editing room: {{ room_to_modify.room_name }}</h1>
+</div>
+
+<div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-4">
+
+                <label>Input new room name<br>
+                <input type="text" name="room_name">
+                </label>
+
+
+            </div>
+            <div class="col-sm-4">
+                <label>Edit number of spaces in room
+                    <input type="number" name="room_places">
+                </label>
+            </div>
+
+            <div class="col-sm-4">
+
+                <labeL>Is room has projector ?<br>
+
+                <input type="checkbox" name="projector_true" value='1'>
+                    <label for="scales">Yes</label>
+
+                    <input type="checkbox" name="projector_false" value='1'>
+                    <label for="horns">No</label>
+                </labeL>
+
+            </div>
+        </div>
+        <div class="center">
+        <input type="submit" value="Send">
+        </div>
+
+
+    </form>
+</div>
+<div>
+    <p></p>
+</div>
+<footer>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">The system designed by: Szymon Ciesla - <a class="text-dark" href="https://github.com/sciesla4">GitHub</a>
+    </div>
+</footer>
+</body>
+</html>

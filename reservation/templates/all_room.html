@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Room reservation system</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .center {
+            text-align: center;
+
+        }
+        .demo {
+		border:2px solid #000000;
+		border-collapse:collapse;
+		border-spacing:3px;
+		padding:5px;
+        margin-left: auto;
+        margin-right: auto;
+	    }
+	    .demo th {
+		border:2px solid #000000;
+		padding:5px;
+		background:#8F8F8F;
+	    }
+	    .demo td {
+		border:2px solid #000000;
+		text-align:center;
+		padding:5px;
+		background:#EE8686;
+	    }
+    </style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+    <h1>See below full list of rooms</h1>
+    <p>Easy and effective way to manage rooms.</p>
+</div>
+
+        <table class="demo">
+            <thead>
+            <tr>
+                <th>Room name</th>
+                <th>Number of places in room</th>
+                <th>Room available</th>
+                <th>Projector available</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Reservation</th>
+            </tr>
+            </thead>
+            {% for room in all_rooms %}
+            <tbody>
+            <tr>
+                <td><a href = "/room/{{ room.id }}/">{{ room.room_name }}</a></td>
+                <td>{{ room.room_places }}</td>
+                {% if room.reserved %}
+                    <td>Booked</td>
+                {% else %}
+                    <td>Available</td>
+                {% endif %}
+                <td>{{ room.project_available }}</td>
+                <td><button><a href="/room_modify/{{ room.id }}/">Edit room</a> </button></td>
+                <td><button><a href="/room_delete/{{ room.id }}/">Delete room</a> </button></td>
+                <td><button><a href="/room_reservation/{{ room.id }}/">Reservation of room</a> </button></td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+
+
+<div class="container">
+
+
+
+    <p></p>
+</div>
+<footer>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">The system designed by: Szymon Ciesla -
+        <a class="text-dark" href="https://github.com/sciesla4">GitHub</a>
+    </div>
+</footer>
+</body>
+</html>
